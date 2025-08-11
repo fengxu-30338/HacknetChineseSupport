@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36327.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HacknetChineseSupport", "HacknetChineseSupport.csproj", "{C161D81D-BFDD-4A86-937F-FBF04DD3C762}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C161D81D-BFDD-4A86-937F-FBF04DD3C762}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{C161D81D-BFDD-4A86-937F-FBF04DD3C762}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{C161D81D-BFDD-4A86-937F-FBF04DD3C762}.Debug|x86.ActiveCfg = Debug|x86
+		{C161D81D-BFDD-4A86-937F-FBF04DD3C762}.Debug|x86.Build.0 = Debug|x86
+		{C161D81D-BFDD-4A86-937F-FBF04DD3C762}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C161D81D-BFDD-4A86-937F-FBF04DD3C762}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C161D81D-BFDD-4A86-937F-FBF04DD3C762}.Release|x86.ActiveCfg = Release|x86
+		{C161D81D-BFDD-4A86-937F-FBF04DD3C762}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F77187FC-B8D9-456E-8932-4230C1F38A2B}
+	EndGlobalSection
+EndGlobal
