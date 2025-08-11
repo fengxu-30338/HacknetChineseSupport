@@ -61,18 +61,22 @@
     </Reference>
     <Reference Include="Cyotek.Drawing.BitmapFont">
       <HintPath>libs\Cyotek.Drawing.BitmapFont.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="FNA">
       <HintPath>libs\FNA.dll</HintPath>
     </Reference>
     <Reference Include="FontStashSharp.Base">
       <HintPath>libs\FontStashSharp.Base.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="FontStashSharp.FNA">
       <HintPath>libs\FontStashSharp.FNA.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="FontStashSharp.Rasterizers.StbTrueTypeSharp">
       <HintPath>libs\FontStashSharp.Rasterizers.StbTrueTypeSharp.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="HacknetPathfinder">
       <HintPath>libs\HacknetPathfinder.exe</HintPath>
@@ -91,9 +95,11 @@
     </Reference>
     <Reference Include="StbImageSharp">
       <HintPath>libs\StbImageSharp.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="StbTrueTypeSharp">
       <HintPath>libs\StbTrueTypeSharp.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

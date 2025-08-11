@@ -6,9 +6,12 @@ using Pathfinder.Event.BepInEx;
 using Pathfinder.Meta.Load;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Hacknet.Extensions;
 
 namespace HacknetChineseSupport
 {
@@ -23,9 +26,29 @@ namespace HacknetChineseSupport
         public override bool Load()
         {
             Instance = this;
+            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
             GameFontReplace.Init();
             HarmonyInstance.PatchAll(Instance.GetType().Assembly);
             return true;
+        }
+
+        private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        {
+            if (ExtensionLoader.ActiveExtensionInfo == null)
+            {
+                return null;
+            }
+
+            var folder = Path.Combine(ExtensionLoader.ActiveExtensionInfo.FolderPath, "plugins");
+            var dllFile = Path.GetFullPath(Path.Combine(folder, new AssemblyName(args.Name).Name + ".dll"));
+            if (!File.Exists(dllFile))
+            {
+                Console.WriteLine(dllFile);
+                Console.WriteLine(args.Name);
+                return null;
+            }
+
+            return Assembly.LoadFile(dllFile);
         }
     }
 

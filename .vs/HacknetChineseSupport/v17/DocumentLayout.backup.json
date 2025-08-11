@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\gamefontreplace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\hacknetchinesesupportplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|solutionrelative:hacknetchinesesupportplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|f:\\vs2019\\\u6E38\u620F\u7C7B\\hacknetchinesesupport\\gamefontreplace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|solutionrelative:gamefontreplace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|f:\\vs2019\\\u6E38\u620F\u7C7B\\hacknetchinesesupport\\util\\assemblypathhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\util\\assemblypathhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|solutionrelative:util\\assemblypathhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\util\\iniconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|solutionrelative:util\\iniconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\hacknetchinesesupportplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|solutionrelative:hacknetchinesesupportplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -35,6 +35,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "GameFontReplace.cs",
+              "DocumentMoniker": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\GameFontReplace.cs",
+              "RelativeDocumentMoniker": "GameFontReplace.cs",
+              "ToolTip": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\GameFontReplace.cs",
+              "RelativeToolTip": "GameFontReplace.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T10:43:42.244Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "AssemblyPathHelper.cs",
               "DocumentMoniker": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\Util\\AssemblyPathHelper.cs",
               "RelativeDocumentMoniker": "Util\\AssemblyPathHelper.cs",
@@ -42,12 +55,11 @@
               "RelativeToolTip": "Util\\AssemblyPathHelper.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T12:14:51.36Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-11T12:14:51.36Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "IniConfig.cs",
               "DocumentMoniker": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\Util\\IniConfig.cs",
               "RelativeDocumentMoniker": "Util\\IniConfig.cs",
@@ -55,31 +67,17 @@
               "RelativeToolTip": "Util\\IniConfig.cs",
               "ViewState": "AgIAAB0AAAAAAAAAAAAAAA4AAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T10:54:05.033Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-11T10:54:05.033Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GameFontReplace.cs",
-              "DocumentMoniker": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\GameFontReplace.cs",
-              "RelativeDocumentMoniker": "GameFontReplace.cs",
-              "ToolTip": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\GameFontReplace.cs",
-              "RelativeToolTip": "GameFontReplace.cs",
-              "ViewState": "AgIAAP8AAAAAAAAAAAAcwAkBAABgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T10:43:42.244Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "HacknetChineseSupportPlugin.cs",
               "DocumentMoniker": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\HacknetChineseSupportPlugin.cs",
               "RelativeDocumentMoniker": "HacknetChineseSupportPlugin.cs",
               "ToolTip": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\HacknetChineseSupportPlugin.cs",
               "RelativeToolTip": "HacknetChineseSupportPlugin.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAEwBYAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-11T10:36:34.429Z",
               "EditorCaption": ""

@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading;
 using HacknetChineseSupport.Util;
 
 namespace hacknet_the_cage_inside.Patcher
@@ -27,6 +28,7 @@ namespace hacknet_the_cage_inside.Patcher
 
         public static void Init()
         {
+            Interlocked.MemoryBarrier();
             fontConfig = FontConfig.Load();
             if (fontConfig.FontFilePath == null)
             {
@@ -37,7 +39,6 @@ namespace hacknet_the_cage_inside.Patcher
             StartFixFont();
             HacknetChineseSupportPlugin.Logger.LogInfo($"Font loaded from: {fontConfig.FontFilePath}");
         }
-
 
         [HarmonyPostfix]
         [HarmonyPatch(typeof(Game1), nameof(Game1.LoadContent))]
