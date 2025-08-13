@@ -24,3 +24,6 @@ F:\vs2019\游戏类\HacknetChineseSupport\obj\x86\Release\HacknetChineseSupport.
 F:\vs2019\游戏类\HacknetChineseSupport\obj\x86\Release\HacknetC.C12D93BA.Up2Date
 F:\vs2019\游戏类\HacknetChineseSupport\obj\x86\Release\HacknetChineseSupport.dll
 F:\vs2019\游戏类\HacknetChineseSupport\obj\x86\Release\HacknetChineseSupport.pdb
+F:\vs2019\游戏类\HacknetChineseSupport\bin\x86\Release\HacknetChineseSupport.dll.config
+F:\vs2019\游戏类\HacknetChineseSupport\bin\x86\Release\Sprache.dll
+F:\vs2019\游戏类\HacknetChineseSupport\bin\x86\Release\Sprache.xml

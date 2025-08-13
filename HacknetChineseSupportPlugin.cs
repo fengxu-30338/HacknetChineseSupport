@@ -2,15 +2,9 @@
 using BepInEx.Hacknet;
 using BepInEx.Logging;
 using hacknet_the_cage_inside.Patcher;
-using Pathfinder.Event.BepInEx;
-using Pathfinder.Meta.Load;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using Hacknet.Extensions;
 
 namespace HacknetChineseSupport
@@ -43,8 +37,6 @@ namespace HacknetChineseSupport
             var dllFile = Path.GetFullPath(Path.Combine(folder, new AssemblyName(args.Name).Name + ".dll"));
             if (!File.Exists(dllFile))
             {
-                Console.WriteLine(dllFile);
-                Console.WriteLine(args.Name);
                 return null;
             }
 

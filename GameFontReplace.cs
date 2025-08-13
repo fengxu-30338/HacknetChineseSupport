@@ -3,17 +3,21 @@ using Hacknet;
 using Hacknet.Extensions;
 using Hacknet.Localization;
 using HacknetChineseSupport;
+using HacknetChineseSupport.Parser;
+using HacknetChineseSupport.Util;
 using HarmonyLib;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
+using Sprache;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading;
-using HacknetChineseSupport.Util;
 
 namespace hacknet_the_cage_inside.Patcher
 {
@@ -25,6 +29,9 @@ namespace hacknet_the_cage_inside.Patcher
         private static readonly FontSystem fontSystem = new FontSystem();
         private static readonly Dictionary<SpriteFont, DynamicSpriteFont> fontMap = new Dictionary<SpriteFont, DynamicSpriteFont>();
         private static FontConfig fontConfig;
+        private static readonly SpecialTextParser specialTextParser = new SpecialTextParser();
+        private static readonly SpecialTextCache specialTextCache = new SpecialTextCache(300);
+        private const int AddToCacheMinLength = 5;
 
         public static void Init()
         {
@@ -115,7 +122,15 @@ namespace hacknet_the_cage_inside.Patcher
                 return true;
             }
 
-            __result = dynamicSpriteFont.MeasureString(text);
+            if (!CheckNeedHandleSpecialText(text))
+            {
+                __result = dynamicSpriteFont.MeasureString(text);
+            }
+            else
+            {
+                HandleSpecialText(text, out var parserResult);
+                __result = dynamicSpriteFont.MeasureString(parserResult.Text);
+            }
 
             return false;
         }
@@ -129,9 +144,40 @@ namespace hacknet_the_cage_inside.Patcher
                 return true;
             }
 
-            __result = dynamicSpriteFont.MeasureString(text);
+            var content = text.ToString();
+
+            if (!CheckNeedHandleSpecialText(content))
+            {
+                __result = dynamicSpriteFont.MeasureString(text);
+            }
+            else
+            {
+                HandleSpecialText(content, out var parserResult);
+                __result = dynamicSpriteFont.MeasureString(parserResult.Text);
+            }
 
             return false;
+        }
+
+        private static bool CheckNeedHandleSpecialText(string text)
+        {
+            return fontConfig.OpenMultiColorFontParse && !string.IsNullOrWhiteSpace(text) &&
+                   text.StartsWith(SpecialTextParser.FirstChar);
+        }
+
+        private static void HandleSpecialText(string text, out SpecialFontParserResult parserResult, bool addToCache = false)
+        {
+            if (specialTextCache.TryGetSpecialTextResult(text, out parserResult))
+            {
+                return;
+            }
+
+            if (parserResult != null) return;
+            parserResult = specialTextParser.ParseText(text);
+            if (text.Length >= AddToCacheMinLength && addToCache)
+            {
+                specialTextCache.AddToCache(text, parserResult);
+            }
         }
 
         [HarmonyPrefix]
@@ -153,7 +199,22 @@ namespace hacknet_the_cage_inside.Patcher
             {
                 return true;
             }
-            __instance.DrawString(dynamicSpriteFont, text, position, color, rotation, origin, scale, layerDepth);
+
+            if (!CheckNeedHandleSpecialText(text))
+            {
+                __instance.DrawString(dynamicSpriteFont, text, position, color, rotation, origin, scale, layerDepth);
+                return false;
+            }
+
+            specialTextParser.DefaultCharProp.color = color;
+            HandleSpecialText(text, out var parserResult, true);
+            if (!parserResult.IsSuccess || !parserResult.IsSpecial)
+            {
+                __instance.DrawString(dynamicSpriteFont, parserResult.Text, position, color, rotation, origin, scale, layerDepth);
+                return false;
+            }
+
+            __instance.DrawString(dynamicSpriteFont, parserResult.Text, position, parserResult.Colors, rotation, origin, scale, layerDepth);
 
             return false;
         }
@@ -168,7 +229,7 @@ namespace hacknet_the_cage_inside.Patcher
         }
 
         /// <summary>
-        /// 使 “您是系统管理员字样居住，获取其Y值”
+        /// 使 “您是系统管理员字样居中，获取其Y值”
         /// </summary>
         /// <returns></returns>
         private static float GetDoConnectHeaderY(ref Rectangle rect, ref Vector2 measure)
@@ -260,6 +321,12 @@ public class FontConfig
     /// </summary>
     public int ChangeFontSizeInterval { get; private set; } = 2;
 
+    /// <summary>
+    /// 是否开启多色字体解析
+    /// </summary>
+    public bool OpenMultiColorFontParse { get; private set; } = false;
+
+
     private static string GetSearchFolder()
     {
         if (ExtensionLoader.ActiveExtensionInfo != null)
@@ -322,6 +389,7 @@ public class FontConfig
         fontConfig.UIFontSize = iniConfig.GetInt("default", nameof(UIFontSize), fontConfig.UIFontSize);
         fontConfig.DetailFontSize = iniConfig.GetInt("default", nameof(DetailFontSize), fontConfig.DetailFontSize);
         fontConfig.ChangeFontSizeInterval = iniConfig.GetInt("default", nameof(ChangeFontSizeInterval), fontConfig.ChangeFontSizeInterval);
+        fontConfig.OpenMultiColorFontParse = iniConfig.GetBool("default", nameof(OpenMultiColorFontParse), fontConfig.OpenMultiColorFontParse);
 
         return fontConfig;
     }

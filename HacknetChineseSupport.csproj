@@ -93,6 +93,9 @@
     <Reference Include="PathfinderAPI">
       <HintPath>libs\PathfinderAPI.dll</HintPath>
     </Reference>
+    <Reference Include="Sprache, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Sprache.2.3.1\lib\net45\Sprache.dll</HintPath>
+    </Reference>
     <Reference Include="StbImageSharp">
       <HintPath>libs\StbImageSharp.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -113,11 +116,17 @@
   <ItemGroup>
     <Compile Include="GameFontReplace.cs" />
     <Compile Include="HacknetChineseSupportPlugin.cs" />
+    <Compile Include="Parser\SpecialTextCache.cs" />
+    <Compile Include="Parser\SpecialTextParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\AssemblyPathHelper.cs" />
     <Compile Include="Util\IniConfig.cs" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy "$(TargetPath)" "$(ProjectDir)\Example"</PostBuildEvent>

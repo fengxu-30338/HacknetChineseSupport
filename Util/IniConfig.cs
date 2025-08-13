@@ -53,6 +53,9 @@ namespace HacknetChineseSupport.Util
         public int GetInt(string section, string key, int defaultValue = 0)
             => int.TryParse(GetValue(section, key), out int result) ? result : defaultValue;
 
+        public bool GetBool(string section, string key, bool defaultValue = false)
+            => bool.TryParse(GetValue(section, key), out bool result) ? result : defaultValue;
+
         public void SetValue(string section, string key, string value)
         {
             if (!_sections.ContainsKey(section))
