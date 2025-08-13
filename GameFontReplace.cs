@@ -25,9 +25,9 @@ namespace hacknet_the_cage_inside.Patcher
     public static class GameFontReplace
     {
         private static bool defaultInstalled = false;
-        private static bool localeInstalled = false;
         private static readonly FontSystem fontSystem = new FontSystem();
-        private static readonly Dictionary<SpriteFont, DynamicSpriteFont> fontMap = new Dictionary<SpriteFont, DynamicSpriteFont>();
+        private static readonly Dictionary<SpriteFont, DynamicSpriteFont> defaultFontMap = new Dictionary<SpriteFont, DynamicSpriteFont>();
+        private static readonly Dictionary<SpriteFont, DynamicSpriteFont> localeFontMap = new Dictionary<SpriteFont, DynamicSpriteFont>();
         private static FontConfig fontConfig;
         private static readonly SpecialTextParser specialTextParser = new SpecialTextParser();
         private static readonly SpecialTextCache specialTextCache = new SpecialTextCache(300);
@@ -43,7 +43,7 @@ namespace hacknet_the_cage_inside.Patcher
                 return;
             }
             fontSystem.AddFont(File.ReadAllBytes(fontConfig.FontFilePath));
-            StartFixFont();
+            FixDefaultFont();
             HacknetChineseSupportPlugin.Logger.LogInfo($"Font loaded from: {fontConfig.FontFilePath}");
         }
 
@@ -51,65 +51,74 @@ namespace hacknet_the_cage_inside.Patcher
         [HarmonyPatch(typeof(Game1), nameof(Game1.LoadContent))]
         private static void PostFixGameLoadContent()
         {
-            StartFixFont();
+            FixDefaultFont();
+            FixLocaleFont(GuiData.ActiveFontConfig);
         }
 
         [HarmonyPostfix]
-        [HarmonyPatch(typeof(LocaleFontLoader), nameof(LocaleFontLoader.LoadFontConfigForLocale))]
-        private static void PostFixLoadFontConfigForLocale()
+        [HarmonyPatch(typeof(GuiData), nameof(GuiData.ActivateFontConfig), typeof(GuiData.FontCongifOption))]
+        private static void FixLocaleFont(GuiData.FontCongifOption config)
         {
-            StartFixFont();
+            var baseChangeFontSizeInterval = config.name == "default" ? 0 : (config.name == "medium" ? fontConfig.ChangeFontSizeInterval : fontConfig.ChangeFontSizeInterval * 2);
+            ClearLocaleFontSystemDic();
+            config.tinyFontCharHeight = fontConfig.UIFontSize;
+            if (config.detailFont != null)
+            {
+                localeFontMap[config.detailFont] = fontSystem.GetFont(fontConfig.DetailFontSize);
+            }
+
+            if (config.smallFont != null)
+            {
+                localeFontMap[config.smallFont] = fontSystem.GetFont(fontConfig.SmallFontSize + baseChangeFontSizeInterval);
+            }
+
+            if (config.tinyFont != null)
+            {
+                localeFontMap[config.tinyFont] = fontSystem.GetFont(fontConfig.UIFontSize + baseChangeFontSizeInterval);
+            }
+
+            if (config.bigFont != null)
+            {
+                localeFontMap[config.bigFont] = fontSystem.GetFont(fontConfig.LargeFontSize);
+            }
+            
+            GuiData.ActiveFontConfig.tinyFontCharHeight = fontConfig.UIFontSize + baseChangeFontSizeInterval;
+            UpdateLocaleFontSystemDic();
         }
 
-        private static void StartFixFont()
+        private static void ClearLocaleFontSystemDic()
+        {
+            var keys = localeFontMap.Keys.ToList();
+            keys.ForEach(font =>
+            {
+                defaultFontMap.Remove(font);
+                localeFontMap.Remove(font);
+            });
+        }
+
+        private static void UpdateLocaleFontSystemDic()
+        {
+            var keys = localeFontMap.Keys.ToList();
+            keys.ForEach(font =>
+            {
+                defaultFontMap[font] = localeFontMap[font];
+            });
+        }
+
+
+        private static void FixDefaultFont()
         {
             if (GuiData.font != null && !defaultInstalled)
             {
                 // 连接到xxx字样
-                fontMap[GuiData.font] = fontSystem.GetFont(fontConfig.LargeFontSize);
+                defaultFontMap[GuiData.font] = fontSystem.GetFont(fontConfig.LargeFontSize);
                 // 您是本系统管理员字样
-                fontMap[GuiData.smallfont] = fontSystem.GetFont(fontConfig.SmallFontSize);
+                defaultFontMap[GuiData.smallfont] = fontSystem.GetFont(fontConfig.SmallFontSize);
                 // UI等字样
-                fontMap[GuiData.tinyfont] = fontSystem.GetFont(fontConfig.UIFontSize);
+                defaultFontMap[GuiData.tinyfont] = fontSystem.GetFont(fontConfig.UIFontSize);
                 // appbar,ram模块等字样
-                fontMap[GuiData.detailfont] = fontSystem.GetFont(fontConfig.DetailFontSize);
+                defaultFontMap[GuiData.detailfont] = fontSystem.GetFont(fontConfig.DetailFontSize);
                 defaultInstalled = true;
-            }
-
-
-            if (GuiData.LocaleFontConfigs.ContainsKey("zh-cn") && !localeInstalled)
-            {
-                var options = GuiData.LocaleFontConfigs["zh-cn"];
-                foreach (var config in options)
-                {
-                    if (config.name == "default")
-                    {
-                        fontMap[config.detailFont] = fontSystem.GetFont(fontConfig.DetailFontSize);
-                        fontMap[config.smallFont] = fontSystem.GetFont(fontConfig.SmallFontSize);
-                        fontMap[config.tinyFont] = fontSystem.GetFont(fontConfig.UIFontSize);
-                        fontMap[config.bigFont] = fontSystem.GetFont(fontConfig.LargeFontSize);
-                        continue;
-                    }
-
-                    if (config.name == "medium")
-                    {
-                        fontMap[config.detailFont] = fontSystem.GetFont(fontConfig.DetailFontSize);
-                        fontMap[config.smallFont] = fontSystem.GetFont(fontConfig.SmallFontSize + fontConfig.ChangeFontSizeInterval);
-                        fontMap[config.tinyFont] = fontSystem.GetFont(fontConfig.UIFontSize + fontConfig.ChangeFontSizeInterval);
-                        fontMap[config.bigFont] = fontSystem.GetFont(fontConfig.LargeFontSize);
-                        continue;
-                    }
-
-                    if (config.name == "large")
-                    {
-                        fontMap[config.detailFont] = fontSystem.GetFont(fontConfig.DetailFontSize);
-                        fontMap[config.smallFont] = fontSystem.GetFont(fontConfig.SmallFontSize + fontConfig.ChangeFontSizeInterval * 2);
-                        fontMap[config.tinyFont] = fontSystem.GetFont(fontConfig.UIFontSize + fontConfig.ChangeFontSizeInterval * 2);
-                        fontMap[config.bigFont] = fontSystem.GetFont(fontConfig.LargeFontSize);
-                        continue;
-                    }
-                }
-                localeInstalled = true;
             }
         }
 
@@ -117,7 +126,7 @@ namespace hacknet_the_cage_inside.Patcher
         [HarmonyPatch(typeof(SpriteFont), nameof(SpriteFont.MeasureString), typeof(string))]
         private static bool PrefixMeasureString(SpriteFont __instance, string text, ref Vector2 __result)
         {
-            if (!fontMap.TryGetValue(__instance, out var dynamicSpriteFont))
+            if (!defaultFontMap.TryGetValue(__instance, out var dynamicSpriteFont))
             {
                 return true;
             }
@@ -139,7 +148,7 @@ namespace hacknet_the_cage_inside.Patcher
         [HarmonyPatch(typeof(SpriteFont), nameof(SpriteFont.MeasureString), typeof(StringBuilder))]
         private static bool PrefixMeasureStringBuilder(SpriteFont __instance, StringBuilder text, ref Vector2 __result)
         {
-            if (!fontMap.TryGetValue(__instance, out var dynamicSpriteFont))
+            if (!defaultFontMap.TryGetValue(__instance, out var dynamicSpriteFont))
             {
                 return true;
             }
@@ -195,7 +204,7 @@ namespace hacknet_the_cage_inside.Patcher
             SpriteEffects effects,
             float layerDepth)
         {
-            if (!fontMap.TryGetValue(spriteFont, out var dynamicSpriteFont))
+            if (!defaultFontMap.TryGetValue(spriteFont, out var dynamicSpriteFont))
             {
                 return true;
             }

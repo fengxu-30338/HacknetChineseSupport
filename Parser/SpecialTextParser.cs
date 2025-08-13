@@ -141,7 +141,7 @@ namespace HacknetChineseSupport.Parser
 
             try
             {
-                var chInfo = TextParser.Parse(text);
+                var chInfo = TextParser.End().Parse(text);
                 if (IsDebug)
                 {
                     Console.WriteLine("======================== 解析结果 =========================");

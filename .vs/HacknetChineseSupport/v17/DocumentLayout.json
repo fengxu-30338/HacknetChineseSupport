@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|f:\\vs2019\\\u6E38\u620F\u7C7B\\hacknetchinesesupport\\gamefontreplace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|solutionrelative:gamefontreplace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\hacknetchinesesupportplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|solutionrelative:hacknetchinesesupportplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|f:\\vs2019\\\u6E38\u620F\u7C7B\\hacknetchinesesupport\\parser\\specialtextparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|solutionrelative:parser\\specialtextparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\gamefontreplace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|solutionrelative:gamefontreplace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\parser\\specialtextcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|solutionrelative:parser\\specialtextcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\parser\\specialtextparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|solutionrelative:parser\\specialtextparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C161D81D-BFDD-4A86-937F-FBF04DD3C762}|HacknetChineseSupport.csproj|F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\util\\assemblypathhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -43,51 +43,50 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SpecialTextParser.cs",
-              "DocumentMoniker": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\Parser\\SpecialTextParser.cs",
-              "RelativeDocumentMoniker": "Parser\\SpecialTextParser.cs",
-              "ToolTip": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\Parser\\SpecialTextParser.cs",
-              "RelativeToolTip": "Parser\\SpecialTextParser.cs",
-              "ViewState": "AgIAAHQAAAAAAAAAAIAywI4AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T16:08:15.426Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SpecialTextCache.cs",
-              "DocumentMoniker": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\Parser\\SpecialTextCache.cs",
-              "RelativeDocumentMoniker": "Parser\\SpecialTextCache.cs",
-              "ToolTip": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\Parser\\SpecialTextCache.cs",
-              "RelativeToolTip": "Parser\\SpecialTextCache.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAwwEUAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T17:59:09.604Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GameFontReplace.cs",
-              "DocumentMoniker": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\GameFontReplace.cs",
-              "RelativeDocumentMoniker": "GameFontReplace.cs",
-              "ToolTip": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\GameFontReplace.cs",
-              "RelativeToolTip": "GameFontReplace.cs",
-              "ViewState": "AgIAALsAAAAAAAAAAAAAwNIAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T10:43:42.244Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "HacknetChineseSupportPlugin.cs",
               "DocumentMoniker": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\HacknetChineseSupportPlugin.cs",
               "RelativeDocumentMoniker": "HacknetChineseSupportPlugin.cs",
               "ToolTip": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\HacknetChineseSupportPlugin.cs",
               "RelativeToolTip": "HacknetChineseSupportPlugin.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAywBAAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAywBUAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T10:36:34.429Z",
+              "WhenOpened": "2025-08-11T10:36:34.429Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SpecialTextParser.cs",
+              "DocumentMoniker": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\Parser\\SpecialTextParser.cs",
+              "RelativeDocumentMoniker": "Parser\\SpecialTextParser.cs",
+              "ToolTip": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\Parser\\SpecialTextParser.cs",
+              "RelativeToolTip": "Parser\\SpecialTextParser.cs",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAAwJUAAABoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T16:08:15.426Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SpecialTextCache.cs",
+              "DocumentMoniker": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\Parser\\SpecialTextCache.cs",
+              "RelativeDocumentMoniker": "Parser\\SpecialTextCache.cs",
+              "ToolTip": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\Parser\\SpecialTextCache.cs",
+              "RelativeToolTip": "Parser\\SpecialTextCache.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAWwFEAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T17:59:09.604Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GameFontReplace.cs",
+              "DocumentMoniker": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\GameFontReplace.cs",
+              "RelativeDocumentMoniker": "GameFontReplace.cs",
+              "ToolTip": "F:\\vs2019\\\u6E38\u620F\u7C7B\\HacknetChineseSupport\\GameFontReplace.cs",
+              "RelativeToolTip": "GameFontReplace.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAcwCoAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T10:43:42.244Z",
               "EditorCaption": ""
             },
             {
@@ -113,10 +112,6 @@
               "ViewState": "AgIAAB0AAAAAAAAAAAAAADcAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-11T10:54:05.033Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
             }
           ]
         }

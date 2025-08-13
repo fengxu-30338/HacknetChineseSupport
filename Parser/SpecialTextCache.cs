@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace HacknetChineseSupport.Parser
@@ -85,7 +86,15 @@ namespace HacknetChineseSupport.Parser
             {
                 result.AddToCacheTime = DateTime.Now;
             }
-            DetectCacheExpire();
+            try
+            {
+                DetectCacheExpire();
+            }
+            catch (Exception e)
+            {
+                HacknetChineseSupportPlugin.Logger.LogError($"DetectCacheExpire error: {e.Message}, threadId:{Thread.CurrentThread.ManagedThreadId}");
+                HacknetChineseSupportPlugin.Logger.LogError(e.StackTrace);
+            }
             return res;
         }
     }
