@@ -14,7 +14,7 @@ namespace HacknetChineseSupport
     {
         public const string ModGUID = "HacknetChineseSupportPlugin";
         public const string ModName = "HacknetChineseSupportPlugin";
-        public const string ModVer = "1.0.0";
+        public const string ModVer = "1.0.1";
         public static HacknetChineseSupportPlugin Instance { get; private set; }
         public static ManualLogSource Logger => Instance.Log;
         public override bool Load()
