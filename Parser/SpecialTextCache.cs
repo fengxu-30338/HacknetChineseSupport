@@ -49,6 +49,11 @@ namespace HacknetChineseSupport.Parser
 
         private void DetectCacheExpire()
         {
+            if (Thread.CurrentThread.Name != "MAIN")
+            {
+                return;
+            }
+
             if (curDecCursor == null)
             {
                 if (_keys.Count == 0)

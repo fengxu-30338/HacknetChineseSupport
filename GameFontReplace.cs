@@ -51,6 +51,7 @@ namespace hacknet_the_cage_inside.Patcher
         [HarmonyPatch(typeof(Game1), nameof(Game1.LoadContent))]
         private static void PostFixGameLoadContent()
         {
+            Thread.CurrentThread.Name = "MAIN";
             FixDefaultFont();
             FixLocaleFont(GuiData.ActiveFontConfig);
         }
@@ -234,6 +235,24 @@ namespace hacknet_the_cage_inside.Patcher
         private static bool PrefixSafeFilterString(string data, ref string __result)
         {
             __result = data;
+            return false;
+        }
+
+        [HarmonyPrefix]
+        [HarmonyPatch(typeof(Utils), nameof(Utils.CleanStringToLanguageRenderable))]
+        private static bool PrefixCleanStringToLanguageRenderable(string input, ref string __result)
+        {
+            input = input.Replace("\t", "    ");
+            StringBuilder stringBuilder = new StringBuilder();
+            string source = "\r\n";
+            for (int index = 0; index < input.Length; ++index)
+            {
+                if (source.Contains<char>(input[index]))
+                    stringBuilder.Append(input[index]);
+                else
+                    stringBuilder.Append(input[index]);
+            }
+            __result = stringBuilder.ToString();
             return false;
         }
 

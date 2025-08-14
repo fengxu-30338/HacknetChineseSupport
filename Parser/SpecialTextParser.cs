@@ -155,7 +155,10 @@ namespace HacknetChineseSupport.Parser
                 foreach (var charInfo in chInfo)
                 {
                     sb.Append(charInfo.Char);
-                    colors.Add(charInfo.CharPropInfo.color);
+                    if (!char.IsWhiteSpace(charInfo.Char))
+                    {
+                        colors.Add(charInfo.CharPropInfo.color);
+                    }
                 }
 
                 return new SpecialFontParserResult(true, sb.ToString(), colors.ToArray(), _containsSpecial);
